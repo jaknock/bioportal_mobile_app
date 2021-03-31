@@ -1,3 +1,4 @@
+import 'package:bioportal_mobile_app/table.dart';
 import 'package:flutter/material.dart';
 
 class CategorySelector extends StatefulWidget {
@@ -8,7 +9,7 @@ class CategorySelector extends StatefulWidget {
 class _CategorySelectorState extends State<CategorySelector> {
   int selectedIndex = 0;
   final List<String> categories = [
-    'Phylogenetic Tree',
+    'Chart',
     'Case Locations',
     'Data Grid',
     'Cases per Date Received'
@@ -26,6 +27,11 @@ class _CategorySelectorState extends State<CategorySelector> {
                 onTap: () {
                   setState(() {
                     selectedIndex = index;
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TableLayout()),
+                    );
                   });
                 },
                 child: Padding(
